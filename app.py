@@ -24,10 +24,9 @@ def init_retriever():
 
 def card(id_val, source):
     st.markdown(f"""
-    <div class="card" style="margin:1rem;">
+    <div class="card" style="margin:0rem;">
         <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted">{id_val}</h6>
-            <h5 class="card-title">{source}</h5>            
+            <div class="card-subtitle mb-2 text-muted">{id_val}</div><div class="card-title">{source}</div>            
         </div>
     </div>
     """, unsafe_allow_html=True)

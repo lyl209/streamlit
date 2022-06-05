@@ -47,9 +47,9 @@ if query != "":
     # get relevant contexts
     #xc = index.query(xq, top_k=5,
     #                 include_metadata=True)
-    xc = {"results":[{"matches": [{"id":1, "metadata":{"title":"abc", "text": "test"}},
-    {"id":2, "metadata":{"title":"abc", "text": "test"}},
-    {"id":3, "metadata":{"title":"abc", "text": "test"}}
+    xc = {"results":[{"matches": [{"id":1, "metadata":{"title": query, "text": "test"}},
+    {"id":2, "metadata":{"title":query, "text": "test"}},
+    {"id":3, "metadata":{"title":query, "text": "test"}}
     ]}]}
 
     # display each context (NEW PART)
@@ -59,4 +59,4 @@ if query != "":
             context['metadata']['title']
         )
 st.markdown("""---""")
-st.write("Please reach out to xxx for any questions.")
+st.markdown("""<h6 class="card-subtitle mb-2 text-muted">Please reach out to xxx for any questions.</h6>""", unsafe_allow_html=True)

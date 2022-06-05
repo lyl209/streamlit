@@ -20,8 +20,6 @@ st.title("Semantic Search")
 @st.experimental_singleton
 def init_retriever():
     print("Singleton init_retriever")
-    # initialize retriever model
-    #return SentenceTransformer('pinecone/mpnet-retriever-squad2')
 
 
 def card(id_val, source):
@@ -42,21 +40,13 @@ retriever = init_retriever()
 query = st.text_input("Enter something to search", "")
 if query != "":
     print("Query:", query)
-    # encode the query as sentence vector
-    #xq = retriever.encode([query]).tolist()    
-    # get relevant contexts
-    #xc = index.query(xq, top_k=5,
-    #                 include_metadata=True)
-    xc = {"results":[{"matches": [{"id":1, "metadata":{"title": query, "text": "test"}},
-    {"id":2, "metadata":{"title":query, "text": "test"}},
-    {"id":3, "metadata":{"title":query, "text": "test"}}
-    ]}]}
+    xc = {"results":[{"id": "AAAA 12345678", "title": query},{"id": "AAAA 8888888", "title": query},]}
 
     # display each context (NEW PART)
-    for context in xc['results'][0]['matches']:
+    for context in xc['results']:
         card(
             context['id'],
-            context['metadata']['title']
+            context['title']
         )
 st.markdown("""---""")
 st.markdown("""<h6 class="card-subtitle mb-2 text-muted">Please reach out to xxx for any questions.</h6>""", unsafe_allow_html=True)
